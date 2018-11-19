@@ -2,7 +2,7 @@
 <package format="2">
   <name>esc_interface</name>
   <version>0.0.0</version>
-  <description>The nodes package</description>
+  <description>The esc_interface package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
