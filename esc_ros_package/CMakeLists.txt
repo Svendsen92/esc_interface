@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(nodes)
+project(esc_interface)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 #add_compile_options(-std=c++11)
@@ -33,11 +33,13 @@ include_directories(
 
 ## Declare a C++ library
 add_library(
-  esc_lib src/esc_lib.cpp
+  	esc_lib src/esc_lib.cpp
 )
 
 add_executable(esc_talker src/esc_talker.cpp)
-target_link_libraries(esc_talker ${catkin_LIBRARIES})
+target_link_libraries(esc_talker 
+	${catkin_LIBRARIES}
+)
 
 add_executable(esc_interface src/esc_interface.cpp)
 target_link_libraries(esc_interface
@@ -46,6 +48,3 @@ target_link_libraries(esc_interface
 	pthread
 	${catkin_LIBRARIES}
 )
-
-#add_executable(esc_lib src/esc_lib.cpp)
-#target_link_libraries(esc_lib ${catkin_LIBRARIES} pigpiod_if2 pthread)
