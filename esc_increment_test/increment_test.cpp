@@ -8,10 +8,10 @@ int main()
 {
 	std::cout << "ESC test initiated" << std::endl;
 	int left_esc_pin = 17;
-	//int right_esc_pin = 27;
+	int right_esc_pin = 27;
 
 	esc_lib esc_left(left_esc_pin);
-	//esc_lib esc_right(right_esc_pin);
+	esc_lib esc_right(right_esc_pin);
 	
 	char input = ' ';
 	int speed_left = 0;
@@ -43,22 +43,22 @@ int main()
 		else if (input == 'o') 
 		{
 			speed_right = speed_right + increment;
-			//esc_right.setSpeed(esc_right.NEUTRAL + speed_right);
+			esc_right.setSpeed(esc_right.NEUTRAL + speed_right);
 			std::cout << "speed: " << speed_right << std::endl << std::endl;
 		}
 		else if (input == 'l') 
 		{
 			speed_right = speed_right - increment;
-			//esc_right.setSpeed(esc_right.NEUTRAL + speed_right);
+			esc_right.setSpeed(esc_right.NEUTRAL + speed_right);
 			std::cout << "speed: " << speed_right << std::endl << std::endl;
 		}
 		else if (input == 's') 
 		{
 			speed_left = 0;
-			//speed_right = 0;
+			speed_right = 0;
 
 			esc_left.setSpeed(esc_left.NEUTRAL);
-			//esc_right.setSpeed(esc_right.NEUTRAL);
+			esc_right.setSpeed(esc_right.NEUTRAL);
 			std::cout << "Motors have been stopped" << std::endl << std::endl;
 		}
 		else if (input == 'q') 
@@ -72,7 +72,7 @@ int main()
 	}
 
 	esc_left.end();
-	//esc_right.end();
+	esc_right.end();
 
 	return 0;
 }
